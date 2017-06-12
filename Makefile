@@ -1,4 +1,5 @@
 # LaTeX Makefile v1.0 -- LaTeX
+# vim: set tabstop=4 shiftwidth=4 noexpandtab:
 
 CWD != pwd
 
@@ -23,33 +24,37 @@ CONTENT_FILES += contents/stratice.tex
 CONTENT_FILES += contents/zip.tex
 
 PDFS = WIPresume.pdf
+TXTS = $(PDFS:R).txt
 
 ALL_FILES = $(PDFS) $(CONTENT_FILES)
 LATEX=pdflatex
 PDFLATEX_FLAGS = -output-directory $(OUTPUT_DIR)
-OUTPUT_DIR = ./tmp
+PDFTOTEXT = pdftotext
+PDFTOTEXT_FLAGS = -layout
+OUTPUT_DIR = tmp/
 CURRENT_FILE := $(.PARSEFILE)
 
 #all:	## Make all targets
 #all:	$(PDFS) TEMPS ## Make all targets
-all:	$(PDFS)	 ## Make all targets
-	#$(LATEX) $(MAIN)                # main run
-	#$(LATEX) $(MAIN)                # incremental run
-	#temps
+all:	$(PDFS)	 $(TXTS)  ## Make all targets
+#all:	$(PDFS)  ## Make all targets
 
 clean:  ## Clean LaTeX and output figure files
-	rm -rf tmp/*
+	rm -f $(OUTPUT_DIR)*
 	#-rm -f ${PDFS}.{ps,pdf,log,aux,out,dvi,bbl,blg}
 
 TEMPS:  .USE	## Move log files to ./tmp
-	-mv -f *.log ./tmp
-	-mv -f *.aux ./tmp
-	-mv -f *.dvi ./tmp
-	-mv -f *.out ./tmp
+	-mv -f *.log $(OUTPUT_DIR)
+	-mv -f *.aux $(OUTPUT_DIR)
+	-mv -f *.dvi $(OUTPUT_DIR)
+	-mv -f *.out $(OUTPUT_DIR)
 
 $(PDFS): $(.PREFIX).tex $(CONTENT_FILES)
 	$(LATEX) $(PDFLATEX_FLAGS) $(.PREFIX).tex
-	-mv -f $(OUTPUT_DIR)/$(.TARGET) $(.TARGET)
+	-mv -f $(OUTPUT_DIR)$(.TARGET) $(.TARGET)
+
+$(TXTS): $(.PREFIX).pdf
+	$(PDFTOTEXT) $(PDFTOTEXT_FLAGS) $(.PREFIX).pdf
 
 
 watch:  ## Recompile on any update of LaTeX
@@ -67,10 +72,14 @@ test:
 	#echo $(MAIN)
 	echo $(TEX_FILES)
 	echo $(CONTENT_FILES)
+	echo $(TXTS)
 
 .PHONY: help
 #.PHONY: all clean temps watch help
 
-.SUFFIXES: .pdf .tex
+.SUFFIXES: .pdf .tex .txt
 .tex.pdf:
 	$(LATEX) $(.IMPSRC)
+
+.pdf.txt:
+	$(PDFTOTEXT) $(.IMPSRC)
