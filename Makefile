@@ -23,10 +23,9 @@ CONTENT_FILES += contents/zip.tex
 
 PDFS   = JonHatfieldResume.pdf
 PDFS  += JonHatfieldPublicResume.pdf
-#TXTS   = $(PDFS:R).txt
 TXTS   = $(PDFS:S/pdf/txt/g)
 
-RESUME_TEX 		= WIPresume.tex
+RESUME_TEX 		= resume.tex
 ALL_FILES       = $(PDFS) $(CONTENT_FILES)
 LATEX           = pdflatex
 PDFLATEX_FLAGS  = -output-directory $(OUTPUT_DIR) --jobname $(.PREFIX)
