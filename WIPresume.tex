@@ -2,6 +2,8 @@
 % vim:set ft=tex spell:
 
 \documentclass[10pt,letterpaper]{article}
+\author{Jon Hatfield}
+\title{Jon Hatfield Resume}
 \usepackage[letterpaper,margin=0.75in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{mdwlist}
@@ -13,6 +15,8 @@
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 %\usepackage{color}
 \usepackage{ifthen}
+\usepackage{etoolbox}
+%\uspackage{pdftexcmds}
 \pagestyle{empty}
 \setlength{\tabcolsep}{0em}
 %\urlstyle{same}
@@ -54,15 +58,34 @@
 
     %\iffalse {
 
-    \ifthenelse{\equal{false}{true}}{\input{./contents/city} \ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
-        \\
-        \input{./contents/linkedin}% \ \ \textbullet \ \ \input{./contents/github}
-        \\
-    }{\input{./contents/address}\ \textbullet \ \ \input{./contents/city} \input{./contents/zip}
-        \\
-        \input{./contents/phone}\ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
-        \\
-    }
+    %%\ifthenelse{\equal{false}{true}}{\input{./contents/city} \ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
+    %\ifstrequal{\jobname}{public}{\input{./contents/city} \ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
+        %\\
+        %\input{./contents/linkedin}% \ \ \textbullet \ \ \input{./contents/github}
+        %\\
+    %}{\input{./contents/address}\ \textbullet \ \ \input{./contents/city} \input{./contents/zip}
+        %\\
+        %%\ifthenelse{\equal{\detokenize{\jobname}}{\detokenize{public}}}{EQUAL}{UNEQUAL}
+        %%\ifnum\pdfstrcmp{\unexpanded{\jobname}}{public}=0
+        %\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0
+            %EQUAL
+        %\else
+            %UNEQUAL
+        %\fi
+        %\input{./contents/phone}\ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
+        %\\
+    %}
+        \ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0
+            \input{./contents/city} \ \textbullet \ \ \input{./contents/email}
+            \\
+            \input{./contents/linkedin}% \ \ \textbullet \ \ \input{./contents/github}
+            \\
+        \else
+            \input{./contents/address}\ \textbullet \ \ \input{./contents/city} \input{./contents/zip}
+            \\
+            \input{./contents/phone}\ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
+            \\
+        \fi
     %{\large Software Developer \ \ \textbullet \ \ \emph{"I fix things"}}
     {\large Software Developer \ \ \textbullet \ \ \emph{"If I don't know it already, I'll learn it"}}
 \end{center}

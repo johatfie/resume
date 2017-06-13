@@ -31,7 +31,7 @@ LATEX=pdflatex
 PDFLATEX_FLAGS = -output-directory $(OUTPUT_DIR)
 PDFTOTEXT = pdftotext
 PDFTOTEXT_FLAGS = -layout
-OUTPUT_DIR = tmp/
+OUTPUT_DIR = tmp
 CURRENT_FILE := $(.PARSEFILE)
 
 #all:	## Make all targets
@@ -40,7 +40,7 @@ all:	$(PDFS)	 $(TXTS)  ## Make all targets
 #all:	$(PDFS)  ## Make all targets
 
 clean:  ## Clean LaTeX and output figure files
-	rm -f $(OUTPUT_DIR)*
+	rm -f $(OUTPUT_DIR)/*
 	#-rm -f ${PDFS}.{ps,pdf,log,aux,out,dvi,bbl,blg}
 
 TEMPS:  .USE	## Move log files to ./tmp
@@ -51,7 +51,7 @@ TEMPS:  .USE	## Move log files to ./tmp
 
 $(PDFS): $(.PREFIX).tex $(CONTENT_FILES)
 	$(LATEX) $(PDFLATEX_FLAGS) $(.PREFIX).tex
-	-mv -f $(OUTPUT_DIR)$(.TARGET) $(.TARGET)
+	-mv -f $(OUTPUT_DIR)/$(.TARGET) $(.TARGET)
 
 $(TXTS): $(.PREFIX).pdf
 	$(PDFTOTEXT) $(PDFTOTEXT_FLAGS) $(.PREFIX).pdf
