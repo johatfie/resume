@@ -54,10 +54,9 @@
 \begin{center}
     %{\LARGE \textbf{\input{./contents/name}}}
     {\huge \textbf{\input{./contents/name}}}
+    \\
     \ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0
         \input{./contents/city} \ \textbullet \ \ \input{./contents/email}
-        \\
-        \input{./contents/linkedin}% \ \ \textbullet \ \ \input{./contents/github}
         \\
     \else
         \input{./contents/address}\ \textbullet \ \ \input{./contents/city} \input{./contents/zip}
@@ -65,6 +64,9 @@
         \input{./contents/phone}\ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
         \\
     \fi
+
+    \input{./contents/linkedin}% \ \ \textbullet \ \ \input{./contents/github}
+    \\
     {\large Software Developer \ \ \textbullet \ \ \emph{"If I don't know it already, I'll learn it"}}
 \end{center}
 

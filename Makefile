@@ -3,9 +3,7 @@
 
 CWD != pwd
 
-#TEX_FILES = WIPresume.tex
 
-#CONTENT_FILES  = $(TEX_FILES)
 CONTENT_FILES  = contents/accomplishments.tex
 CONTENT_FILES += contents/address.tex
 CONTENT_FILES += contents/city.tex
@@ -23,34 +21,30 @@ CONTENT_FILES += contents/searchsoft.tex
 CONTENT_FILES += contents/stratice.tex
 CONTENT_FILES += contents/zip.tex
 
-PDFS = WIPresume.pdf
-TXTS = $(PDFS:R).txt
+PDFS   = JonHatfieldResume.pdf
+PDFS  += JonHatfieldPublicResume.pdf
+#TXTS   = $(PDFS:R).txt
+TXTS   = $(PDFS:S/pdf/txt/g)
 
-ALL_FILES = $(PDFS) $(CONTENT_FILES)
-LATEX=pdflatex
-PDFLATEX_FLAGS = -output-directory $(OUTPUT_DIR)
-PDFTOTEXT = pdftotext
+RESUME_TEX 		= WIPresume.tex
+ALL_FILES       = $(PDFS) $(CONTENT_FILES)
+LATEX           = pdflatex
+PDFLATEX_FLAGS  = -output-directory $(OUTPUT_DIR) --jobname $(.PREFIX)
+PDFTOTEXT       = pdftotext
 PDFTOTEXT_FLAGS = -layout
-OUTPUT_DIR = tmp
-CURRENT_FILE := $(.PARSEFILE)
+OUTPUT_DIR      = tmp
+CURRENT_FILE   := $(.PARSEFILE)
 
-#all:	## Make all targets
-#all:	$(PDFS) TEMPS ## Make all targets
 all:	$(PDFS)	 $(TXTS)  ## Make all targets
-#all:	$(PDFS)  ## Make all targets
 
 clean:  ## Clean LaTeX and output figure files
-	rm -f $(OUTPUT_DIR)/*
+	rm -f $(OUTPUT_DIR)/* $(PDFS) $(TXTS)
 	#-rm -f ${PDFS}.{ps,pdf,log,aux,out,dvi,bbl,blg}
 
-TEMPS:  .USE	## Move log files to ./tmp
-	-mv -f *.log $(OUTPUT_DIR)
-	-mv -f *.aux $(OUTPUT_DIR)
-	-mv -f *.dvi $(OUTPUT_DIR)
-	-mv -f *.out $(OUTPUT_DIR)
-
-$(PDFS): $(.PREFIX).tex $(CONTENT_FILES)
-	$(LATEX) $(PDFLATEX_FLAGS) $(.PREFIX).tex
+#$(PDFS): $(.PREFIX).tex $(CONTENT_FILES)
+$(PDFS): $(RESUME_TEX) $(CONTENT_FILES)
+	#$(LATEX) $(PDFLATEX_FLAGS) $(.PREFIX).tex
+	$(LATEX) $(PDFLATEX_FLAGS) $(RESUME_TEX)
 	-mv -f $(OUTPUT_DIR)/$(.TARGET) $(.TARGET)
 
 $(TXTS): $(.PREFIX).pdf
@@ -69,9 +63,8 @@ help:  # http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html # mod
 	@\grep -E '^[a-zA-Z_-]+:.*## .*$$' $(CURRENT_FILE) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 test:
-	#echo $(MAIN)
-	echo $(TEX_FILES)
 	echo $(CONTENT_FILES)
+	echo $(PDFS)
 	echo $(TXTS)
 
 .PHONY: help
