@@ -1,4 +1,3 @@
-# LaTeX Makefile v1.0 -- LaTeX
 # vim: set tabstop=4 shiftwidth=4 noexpandtab:
 
 CWD != pwd
@@ -66,7 +65,7 @@ test:
 	echo $(PDFS)
 	echo $(TXTS)
 
-.PHONY: help
+.PHONY: help test watch
 #.PHONY: all clean temps watch help
 
 .SUFFIXES: .pdf .tex .txt
