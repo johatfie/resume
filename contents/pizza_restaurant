@@ -1,0 +1,18 @@
+% pizza_restaurant.tex
+% vim:set ft=tex spell:
+%
+    \headerrow
+        {\textbf{Gallagher's Pizza}}
+        %{\emph{2018}}
+        {\textbf{2018}}
+    %\vspace{-0.6em}
+    %\vspace{-1.2em}
+    %\\
+    \begin{itemize*}
+        \item A restaurant website with online ordering using Java 8 and Spring created for the purpose of
+            demonstrating my knowledge of Spring 4 and Java 8
+    \end{itemize*}
+
+    \hspace{1.0em}
+        {\textbf{Technologies:} Java 8, Spring Boot, Spring MVC, Vim, Eclipse, Git, PostgreSQL}
+
