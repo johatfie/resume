@@ -33,10 +33,10 @@ PDFTOTEXT_FLAGS = -layout
 OUTPUT_DIR      = tmp
 CURRENT_FILE   := $(.PARSEFILE)
 
-all:	$(PDFS)	 $(TXTS)  ## Make all targets
+all:	vc	 $(PDFS)	 $(TXTS)  ## Make all targets
 
 clean:  ## Clean LaTeX and output figure files
-	rm -f $(OUTPUT_DIR)/* $(PDFS) $(TXTS)
+	rm -f $(OUTPUT_DIR)/* $(PDFS) $(TXTS) vc.tex
 	#-rm -f ${PDFS}.{ps,pdf,log,aux,out,dvi,bbl,blg}
 
 #$(PDFS): $(.PREFIX).tex $(CONTENT_FILES)
@@ -47,6 +47,10 @@ $(PDFS): $(RESUME_TEX) $(CONTENT_FILES)
 
 $(TXTS): $(.PREFIX).pdf
 	$(PDFTOTEXT) $(PDFTOTEXT_FLAGS) $(.PREFIX).pdf
+
+vc:  ## Rebuild git infomation
+	echo Rebuilding git information file vc.tex
+	@\./vc
 
 
 watch:  ## Recompile on any update of LaTeX
@@ -65,7 +69,7 @@ test:
 	echo $(PDFS)
 	echo $(TXTS)
 
-.PHONY: help test watch
+.PHONY: help test watch vc
 #.PHONY: all clean temps watch help
 
 .SUFFIXES: .pdf .tex .txt

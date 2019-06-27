@@ -16,7 +16,9 @@
 %\usepackage{color}
 \usepackage{ifthen}
 \usepackage{etoolbox}
-\pagestyle{empty}
+%\pagestyle{empty}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 \setlength{\tabcolsep}{0em}
 %\urlstyle{same}
 
@@ -47,6 +49,14 @@
 % make "C++" look pretty when used in text by touching up the plus signs
 \newcommand{\CPP}
 {C\nolinebreak[4]\hspace{-.05em}\raisebox{.22ex}{\footnotesize\bf ++}}
+
+\input{vc.tex}
+
+\fancyhead{} % clear all header fields
+\fancyfoot{} % clear all header fields
+\fancyfoot[L]{\footnotesize Built with \LaTeX}
+\fancyfoot[R]{\footnotesize Commit \GITAbrHash}
+
 
 % and the actual content starts here
 \begin{document}
