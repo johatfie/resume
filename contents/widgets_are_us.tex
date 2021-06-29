@@ -1,0 +1,31 @@
+% pizza_restaurant.tex
+% vim:set ft=tex spell:
+%
+    \headerrow
+        {\textbf{\href{https://github.com/johatfie/widgets-are-us}{Widgets Are Us - A Microservices Demonstration Project}}}
+        %{\emph{2018}}
+        {\textbf{2021}}
+    %\vspace{-0.6em}
+    %\vspace{-1.2em}
+    %\\
+    \begin{itemize*}
+        \item A microservices project for managing customers, products, and ordering for a warehouse
+        \item Built entirely from scratch by myself.  This is still a new project, but I've got all the infrastructure set up to run
+            on AWS.  I'm now working on individual microservices that comprise the project.  All source code is viewable
+            at the above link to my github repositories.
+        \item Hosted on AWS's Elastic Kubernetes Service
+        \item Has an Elasticsearch, Logstash, and Kibana (ELK) stack with Zipkin for logging on a separate EC2 instance
+        \item Full CI/CD with Jenkins hosted on another EC2 instance.  Commits pushed to github are automatically picked up by
+            Jenkins, built, tested, containerized in a Docker container, pushed to my Elastic Container Registry on AWS, and then
+            deployed to Kubernetes running on EKS.
+        \item Uses a Spring Cloud Configuration microservice with RabbitMQ to update the configuration settings for running pods
+        \item Uses a Nextflix Eureka microservice for service discovery
+        \item Uses a Spring Cloud Gateway microservice as the API gateway
+        \item Includes a Customers microservice for managing customer information that is nearly complete
+    \end{itemize*}
+
+    \hspace{1.0em}
+        {\textbf{Technologies:} Java 11, Spring Boot, Spring Cloud, Microservices, Kubernetes, Docker, ElasticSearch,
+        Logstash, Kibana, Zipkin, Jenkins, RabbitMQ, AWS, EKS, EC2, ECR, CI/CD, Spring Cloud Config, Spring Cloud Gateway,
+        Netflix Eureka, IntelliJ, Git, PostgreSQL}
+
