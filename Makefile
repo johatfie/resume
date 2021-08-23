@@ -22,6 +22,7 @@ CONTENT_FILES += contents/zip.tex
 
 PDFS   = JonHatfieldResume.pdf
 PDFS  += JonHatfieldPublicResume.pdf
+PDFS  += JonHatfieldPublicResume_watermarked.pdf
 TXTS   = $(PDFS:S/pdf/txt/g)
 
 RESUME_TEX 		= resume.tex
@@ -33,10 +34,11 @@ PDFTOTEXT_FLAGS = -layout
 OUTPUT_DIR      = tmp
 CURRENT_FILE   := $(.PARSEFILE)
 
-all:	vc	 $(PDFS)	 $(TXTS)  ## Make all targets
+#all:	vc	 $(PDFS)	 $(TXTS)	png  ## Make all targets		pdftotext is unavailable on brew
+all:	vc	 $(PDFS)	png  ## Make all targets
 
 clean:  ## Clean LaTeX and output figure files
-	rm -f $(OUTPUT_DIR)/* $(PDFS) $(TXTS) vc.tex
+	rm -f $(OUTPUT_DIR)/* $(PDFS) $(TXTS) vc.tex *.png *.zip
 	#-rm -f ${PDFS}.{ps,pdf,log,aux,out,dvi,bbl,blg}
 
 #$(PDFS): $(.PREFIX).tex $(CONTENT_FILES)
@@ -52,6 +54,11 @@ vc:  ## Rebuild git infomation
 	echo Rebuilding git information file vc.tex
 	@\./vc
 
+png:  ## Create watermarked images
+	echo Creating recruiter preview version
+	pdf2image JonHatfieldPublicResume_watermarked.pdf
+	zip JonHatfieldPublicResume_watermarked.zip *.png
+	rm -f JonHatfieldPublicResume_watermarked
 
 watch:  ## Recompile on any update of LaTeX
 	@while [ 1 ]; do              \

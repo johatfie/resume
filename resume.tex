@@ -22,6 +22,18 @@
 \setlength{\tabcolsep}{0em}
 %\urlstyle{same}
 
+\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume_watermarked}=0
+    \usepackage{draftwatermark}
+    \SetWatermarkText{\textsc{I am not represented by the recruiter who shared this with you}}
+    \SetWatermarkScale{5}
+    %\SetWatermarkColor[rgb]{0.7,0,0}
+    \SetWatermarkColor[gray]{0.67}
+    %\SetWatermarkColor[rgb]{0.7,0,0}
+    %\SetWatermarkColor[red]{0.5}
+    %\SetWatermarkColor[red]
+    \SetWatermarkFontSize{.2cm}
+\fi
+
 % indentsection style, used for sections that aren't already in lists
 % that need indentation to the level of all text in the document
 \newenvironment{indentsection}[1]%
@@ -66,11 +78,15 @@
     {\huge \textbf{\input{./contents/name}}}
     \\
     \ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0
+    %\if{{\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0} \OR {\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume_watermarked}=0}}
         \input{./contents/city} \ \textbullet \ \ \input{./contents/email}
         \\
-    \else
-        %\input{./contents/address}\ \textbullet \ \ \input{./contents/city} \input{./contents/zip}
-        %\\
+    \fi
+    \ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume_watermarked}=0
+        \input{./contents/city} \ \textbullet \ \ \input{./contents/email}
+        \\
+    \fi
+    \ifnum\pdfstrcmp{\jobname}{JonHatfieldResume}=0
         \input{./contents/phone}\ \textbullet \ \ \input{./contents/email}% \ \ \textbullet \ \
         \\
     \fi
