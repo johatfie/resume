@@ -29,13 +29,14 @@ RESUME_TEX 		= resume.tex
 ALL_FILES       = $(PDFS) $(CONTENT_FILES)
 LATEX           = pdflatex
 PDFLATEX_FLAGS  = -output-directory $(OUTPUT_DIR) --jobname $(.PREFIX)
-PDFTOTEXT       = /usr/local/libexec/xpdf/pdftotext
+#PDFTOTEXT       = /usr/local/libexec/xpdf/pdftotext
+PDFTOTEXT       = /usr/local/bin/pdftotext
 PDFTOTEXT_FLAGS = -layout
 OUTPUT_DIR      = tmp
 CURRENT_FILE   := $(.PARSEFILE)
 
-#all:	vc	 $(PDFS)	 $(TXTS)	png  ## Make all targets		pdftotext is unavailable on brew
-all:	vc	 $(PDFS)	png  ## Make all targets
+all:	vc	 $(PDFS)	 $(TXTS)	png  ## Make all targets
+#all:	vc	 $(PDFS)	png  ## Make all targets		pdftotext is unavailable on brew
 
 clean:  ## Clean LaTeX and output figure files
 	rm -f $(OUTPUT_DIR)/* $(PDFS) $(TXTS) vc.tex *.png *.zip

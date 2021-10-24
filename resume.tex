@@ -18,6 +18,7 @@
 \usepackage{etoolbox}
 %\pagestyle{empty}
 \usepackage{fancyhdr}
+\usepackage{setspace}
 \pagestyle{fancy}
 \setlength{\tabcolsep}{0em}
 %\urlstyle{same}
@@ -67,16 +68,20 @@
 \fancyhead{} % clear all header fields
 \fancyfoot{} % clear all header fields
 \fancyfoot[L]{\footnotesize Built with \LaTeX}
-\fancyfoot[R]{\footnotesize Commit \GITAbrHash}
+\fancyfoot[R]{\footnotesize \href{https://github.com/johatfie/resume}{Commit \GITAbrHash}}
 
 
 % and the actual content starts here
 \begin{document}
 
+\setstretch{1.25}
 \begin{center}
+
     %{\LARGE \textbf{\input{./contents/name}}}
-    {\huge \textbf{\input{./contents/name}}}
+    %{\huge \textbf{\input{./contents/name}}}
+    {\Huge \textbf{\input{./contents/name}}}
     \\
+    \vspace{0.4em}
     \ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0
     %\if{{\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0} \OR {\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume_watermarked}=0}}
         \input{./contents/city} \ \textbullet \ \ \input{./contents/email}
@@ -97,6 +102,7 @@
     {\large Backend Software Developer \ \ \textbullet \ \ \input{./contents/github}}
     %%{\normalsize Software Developer \ \ \textbullet \ \ \emph{"If I don't know it already, I'll learn it"}}
 \end{center}
+\setstretch{1.0}
 
 \begin{center}
     {\large
@@ -134,15 +140,20 @@
 
     \begin{samepage}
     \item
+        \input{./contents/revcontent}
+    \end{samepage}
+
+    \begin{samepage}
+    \item
         \input{./contents/sandata}
     \end{samepage}
+
+    \pagebreak[0]
 
     \begin{samepage}
     \item
         \input{./contents/calsaws}
     \end{samepage}
-
-    \pagebreak[0]
 
     \begin{samepage}
     \item
@@ -169,6 +180,8 @@
         \input{./contents/stratice}
     \end{samepage}
 
+    \pagebreak[0]
+
     \begin{samepage}
     \item
         \input{./contents/salesforce}
@@ -183,8 +196,6 @@
     \item
         \input{./contents/ININ_support_software_engineer}
     \end{samepage}
-
-    \pagebreak[0]
 
     \begin{samepage}
     \item
