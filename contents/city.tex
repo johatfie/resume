@@ -1,4 +1,12 @@
 % city.tex
 % vim:set ft=tex spell:
 %
-Indianapolis, IN
+\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume}=0
+    Anytown, USA
+\fi
+\ifnum\pdfstrcmp{\jobname}{JonHatfieldPublicResume_watermarked}=0
+    Anytown, USA
+\fi
+\ifnum\pdfstrcmp{\jobname}{JonHatfieldResume}=0
+    Indianapolis, IN
+\fi
