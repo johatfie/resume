@@ -2,22 +2,33 @@
 
 CWD != pwd
 
-
-CONTENT_FILES  = contents/accomplishments.tex
+CONTENT_FILES  = contents/ININ_software_engineer.tex
+CONTENT_FILES += contents/ININ_support_software_engineer.tex
+CONTENT_FILES += contents/accomplishments.tex
 CONTENT_FILES += contents/address.tex
+CONTENT_FILES += contents/appriss_health.tex
+CONTENT_FILES += contents/calsaws.tex
 CONTENT_FILES += contents/city.tex
+CONTENT_FILES += contents/developertown.tex
 CONTENT_FILES += contents/education.tex
 CONTENT_FILES += contents/email.tex
 CONTENT_FILES += contents/github.tex
 CONTENT_FILES += contents/headline.tex
 CONTENT_FILES += contents/interactive.tex
+CONTENT_FILES += contents/kroger.tex
 CONTENT_FILES += contents/linkedin.tex
 CONTENT_FILES += contents/name.tex
+CONTENT_FILES += contents/nike.tex
 CONTENT_FILES += contents/phone.tex
+CONTENT_FILES += contents/pizza_restaurant
 CONTENT_FILES += contents/profile.tex
+CONTENT_FILES += contents/revcontent.tex
 CONTENT_FILES += contents/salesforce.tex
+CONTENT_FILES += contents/sandata.tex
 CONTENT_FILES += contents/searchsoft.tex
 CONTENT_FILES += contents/stratice.tex
+CONTENT_FILES += contents/the_cellular_connection.tex
+CONTENT_FILES += contents/widgets_are_us.tex
 CONTENT_FILES += contents/zip.tex
 
 PDFS   = JonHatfieldResume.pdf
@@ -29,8 +40,10 @@ RESUME_TEX 		= resume.tex
 ALL_FILES       = $(PDFS) $(CONTENT_FILES)
 LATEX           = pdflatex
 PDFLATEX_FLAGS  = -output-directory $(OUTPUT_DIR) --jobname $(.PREFIX)
-#PDFTOTEXT       = /usr/local/libexec/xpdf/pdftotext
-PDFTOTEXT       = /usr/local/bin/pdftotext
+PDFTOPNG        = /usr/local/libexec/xpdf/pdftopng
+PDFTOPNG_FLAGS  = -r 80
+PDFTOTEXT       = /usr/local/libexec/xpdf/pdftotext
+#PDFTOTEXT       = /usr/local/bin/pdftotext
 PDFTOTEXT_FLAGS = -layout
 OUTPUT_DIR      = tmp
 CURRENT_FILE   := $(.PARSEFILE)
@@ -57,9 +70,9 @@ vc:  ## Rebuild git infomation
 
 png:  ## Create watermarked images
 	echo Creating recruiter preview version
-	pdf2image JonHatfieldPublicResume_watermarked.pdf
+	$(PDFTOPNG) $(PDFTOPNG_FLAGS) JonHatfieldPublicResume_watermarked.pdf JonHatfieldPublicResume_watermarked
 	zip JonHatfieldPublicResume_watermarked.zip *.png
-	rm -f JonHatfieldPublicResume_watermarked
+	#rm -f JonHatfieldPublicResume_watermarked*.png
 
 watch:  ## Recompile on any update of LaTeX
 	@while [ 1 ]; do              \
