@@ -43,12 +43,12 @@ This project was originally created on a FreeBSD based system.  It uses the vers
 Additional packages:
 
 ```bash
-pkg install inotify-tools
-pkg install texlive-full
-pkg install latex-resume
-pkg install pdflatex
-pkg install xpdf
-pkg install zip
+pkg install --yes inotify-tools
+pkg install --yes texlive-full
+pkg install --yes latex-resume
+pkg install --yes pdflatex
+pkg install --yes xpdf
+pkg install --yes zip
 ```
 
 On Mac or Linux systems, that version of `make` is called `bmake` and likely will need to be installed.
