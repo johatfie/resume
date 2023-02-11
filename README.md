@@ -10,17 +10,17 @@ The project builds three different versions of my resume.
 
 1. The regular version which is a pdf to be shared with prospective employers.
 
-1. A public version, a pdf suitable for posting online which does not contain my phone number and obfuscates many keywords that I don't want to show up in search results.  For example, I don't ever want to show up in the search results when a recruiter is searching for J.a.v.a.S.c.r.i.p.t even though I do have some very small amount of experience with it.  Clever, huh?  J.a.v.a.S.c.r.i.p.t is still readable by humans, but it won't show up in searches.
+1. The public version, a pdf suitable for posting online which does not contain my phone number and obfuscates many keywords that I don't want to show up in search results.  For example, I don't ever want to show up in the search results when a recruiter is searching for J.a.v.a.S.c.r.i.p.t even though I do have some very small amount of experience with it.  Clever, huh?  J.a.v.a.S.c.r.i.p.t is still readable by humans, but it won't show up in searches.
 
-1. The third version, a zip file containing images, is what I call a "Recruiter Preview" version.  It is the same as the public version but watermarked with the text "I AM NOT REPRESENTED BY THE RECRUITER WHO SHARED THIS WITH YOU", and contains no copyable text.  It consists of a zip file containing an image file of each page.  Recruiters want to see my resume.  I don't want them sharing my resume with prospective employers without my knowledge and consent until I have seen and approved the job description for a role.  With the watermark on it, I doubt they will share it with many clients, and the text cannot be copied into another document or scanned into their applicant tracking system.  With this version, they can look at my resume, but that's about all they can easily do with it short of transcribing it manually into a Word document.  If they've shown me a job I want to pursue, I give them the regular version.  Before that, they only get the "Recruiter Preview" version.
+1. The third version, a zip file containing images, is what I call the "Recruiter Preview" version.  It is the same as the public version but watermarked with the text "I AM NOT REPRESENTED BY THE RECRUITER WHO SHARED THIS WITH YOU", and contains no copyable text.  It consists of a zip file containing an image file of each page.  Recruiters want to see my resume.  I don't want them sharing my resume with prospective employers without my knowledge and consent and not until I have seen and approved the job description for a role.  With the watermark on it, I doubt they will share it with many clients, and the text cannot be copied into another document or scanned into their applicant tracking system.  With this version, they can look at my resume, but that's about all they can easily do with it short of transcribing it manually into a Word document.  If they've shown me a job I want to pursue, I give them the regular version.  Before that, they only get the "Recruiter Preview" version.
 
 > **Q: Do some recruiters get mad because they can't "use" my resume as they planned, i.e. without my consent?**
 >
->> **A:** Yes, they do.  <!--:stuck_out_tongue_winking_eye:-->
+>> **A:** Yes, they do.  :stuck_out_tongue_winking_eye:
 >
 > **Q: Do I care that it makes them mad?**
 >
->> **A:** No, I don't. :stuck_out_tongue_winking_eye: In fact, I rather enjoy it.  It is **my** resume.  I'm in control.  They are not.
+>> **A:** No, I don't.  :stuck_out_tongue_winking_eye:  In fact, I rather enjoy it.  It is **my** resume.  I'm in control.  They are not.
 
 ## Background
 
