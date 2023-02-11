@@ -77,5 +77,5 @@ END {
 			print "\\gdef\\VCRevisionMod{\\VCRevision~\\VCModifiedText}%"
 		}
 	}
-		
+
 }
