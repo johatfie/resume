@@ -77,12 +77,12 @@ bmake clean && bmake
 On a BSD system:
 
 ```bash
-make watch
+make clean && make watch
 ```
 
 On a Mac or Linux system:
 
 ```bash
-bmake watch
+bmake clean && bmake watch
 ```
 
