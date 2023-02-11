@@ -36,7 +36,7 @@ PDFS  += JonHatfieldPublicResume.pdf
 PDFS  += JonHatfieldPublicResume_watermarked.pdf
 TXTS   = $(PDFS:S/pdf/txt/g)
 
-RESUME_TEX 		= resume.tex
+RESUME_TEX      = resume.tex
 ALL_FILES       = $(PDFS) $(CONTENT_FILES)
 LATEX           = pdflatex
 PDFLATEX_FLAGS  = -output-directory $(OUTPUT_DIR) --jobname $(.PREFIX)
@@ -65,30 +65,38 @@ $(TXTS): $(.PREFIX).pdf
 	$(PDFTOTEXT) $(PDFTOTEXT_FLAGS) $(.PREFIX).pdf
 
 vc:  ## Rebuild git infomation
-	echo Rebuilding git information file vc.tex
+	@echo
+	@echo Rebuilding git information file vc.tex
+	@echo
 	@\./vc
 
 png:  ## Create watermarked images
-	echo Creating recruiter preview version
+	@echo Creating recruiter preview version
 	$(PDFTOPNG) $(PDFTOPNG_FLAGS) JonHatfieldPublicResume_watermarked.pdf JonHatfieldPublicResume_watermarked
 	zip JonHatfieldPublicResume_watermarked.zip *.png
-	#rm -f JonHatfieldPublicResume_watermarked*.png
+	mv JonHatfieldPublicResume_watermarked*.png $(OUTPUT_DIR)
 
 watch:  ## Recompile on any update of LaTeX
 	@while [ 1 ]; do              \
 		inotifywait $(ALL_FILES); \
 		sleep 0.01;               \
 		make all;                 \
-		echo "\n---------- \n";   \
+		echo;                     \
+		echo "----------";        \
+		echo;                     \
 		done
 
 help:  # http://marmelab.com/blog/2016/02/29/auto-documented-makefile.html # modified for BSD
 	@\grep -E '^[a-zA-Z_-]+:.*## .*$$' $(CURRENT_FILE) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
-test:
-	echo $(CONTENT_FILES)
-	echo $(PDFS)
-	echo $(TXTS)
+debug:  ## Show variables
+	@echo
+	@echo "CONTENT_FILES: $(CONTENT_FILES)"
+	@echo
+	@echo "PDFS: $(PDFS)"
+	@echo
+	@echo "TXTS: $(TXTS)"
+	@echo
 
 .PHONY: help test watch vc
 #.PHONY: all clean temps watch help
