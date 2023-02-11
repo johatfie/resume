@@ -40,6 +40,8 @@ Many hours went into creating this project and refining it over the years.  Most
 
 This project was originally created on a FreeBSD based system.  It uses the version of `make` native to BSD.
 
+Additional packages:
+
 ```bash
 pkg install inotify-tools
 pkg install texlive-full
@@ -49,11 +51,14 @@ pkg install xpdf
 pkg install zip
 ```
 
-On Mac or Linux systems, that version of `make` is called `bmake` and may need to be installed.
+On Mac or Linux systems, that version of `make` is called `bmake` and likely will need to be installed.
 
+```bash
+brew install bmake
 ...
+```
 
-## Building
+## Building the Documents
 
 On a BSD system:
 
