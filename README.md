@@ -30,7 +30,7 @@ I wanted a better way to handle my resume and more control over the formatting. 
 
 The other option I thought of was Latex.  Latex is something I experimented with in school and it creates beautiful documents.  So, I decided to go with Latex.
 
-I also wanted it to be extremely easy to make changes and produce a new version of the documents, preferably from the command line.  So, I decided to use a makefile to do everything at once.
+I also wanted it to be extremely easy to make changes and produce a new version of the documents, preferably from the command line.  So, I decided to use a `Makefile` to do everything at once.
 
 Many hours went into creating this project and refining it over the years.  Mostly because I am not very experienced with Latex.  However, I could not be happier with the results.  It is a joy to make updates to my resume and then build new documents with a command.  Most of the time I have spent on this project was in the initial creation and in the major additions, i.e. adding the public and the recruiter preview versions, for example.  Updates like listing a new job are trivial and take very little time at all.
 
@@ -40,7 +40,18 @@ Many hours went into creating this project and refining it over the years.  Most
 
 This project was originally created on a FreeBSD based system.  It uses the version of `make` native to BSD.
 
+```bash
+pkg install inotify-tools
+pkg install texlive-full
+pkg install latex-resume
+pkg install pdflatex
+pkg install xpdf
+pkg install zip
+```
+
 On Mac or Linux systems, that version of `make` is called `bmake` and may need to be installed.
+
+...
 
 ## Building
 
