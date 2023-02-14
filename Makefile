@@ -76,7 +76,7 @@ png:  ## Create watermarked images
 	zip JonHatfieldPublicResume_watermarked.zip *.png
 	mv JonHatfieldPublicResume_watermarked*.png $(OUTPUT_DIR)
 
-watch:  ## Recompile on any update of LaTeX
+watch:  ## Recompile on any update of LaTeX files
 	@while [ 1 ]; do              \
 		inotifywait $(ALL_FILES); \
 		sleep 0.01;               \
