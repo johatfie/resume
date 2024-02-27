@@ -56,6 +56,7 @@ On Mac or Linux systems, that version of `make` is called `bmake` and likely wil
 ```bash
 brew install bmake
 ...
+This section is incomplete
 ```
 
 ## Building the Documents
